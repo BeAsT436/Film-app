@@ -1,0 +1,10 @@
+.navigation{
+    display: flex;
+    /* justify-content: space-between; */
+}
+li{
+    margin-right: 10px;
+}
+li a:hover{
+    color: aliceblue;
+}
