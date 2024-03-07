@@ -1,0 +1,17 @@
+.list{
+    padding: 10px;
+    margin: 20px 0;
+    display: flex;
+}
+.info{
+    margin-left: 15px;
+}
+.title{
+    font-size: 1.7rem;
+}
+.img{
+    width: 200px;
+}
+
+
+

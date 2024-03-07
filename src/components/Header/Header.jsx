@@ -1,13 +1,13 @@
-import "./Header.css"
-import Nav from "../Nav/Nav"
+import {Nav} from "../index";
+import "./Header.css";
 
 const Header = () => {
-    return (
-      <header>
-        <h1>Movie time</h1>
-        <Nav />
-      </header>
-    );
-  }
+  return (
+    <header>
+      <h1>Movie time</h1>
+      <Nav />
+    </header>
+  );
+};
 
-export default Header
+export default Header;

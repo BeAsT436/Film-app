@@ -1,15 +1,14 @@
 import { useState } from "react";
-import fetchData from "../services/movie"
-import Film from "../components/Film/Film";
+import fetchData from "../services/movie";
+import { MovieList } from "../components";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const getData = async () => {
     const { Search } = await fetchData("home");
-    console.log(Search)
+    console.log(Search);
     setMovies(Search);
   };
-  ;
   function handleOnClick(params) {
     getData();
   }
@@ -17,13 +16,7 @@ const Home = () => {
     <div>
       <h2>Popular films</h2>
       <button onClick={handleOnClick}>123</button>
-      <ul>
-        {movies.length === 0 ? (
-          <h2>no movies</h2>
-        ) : (
-          movies?.map((movie) => <Film movie={movie} key={movie.imdbID} />)
-        )}
-      </ul>
+      <MovieList movies={movies} />
     </div>
   );
 };
