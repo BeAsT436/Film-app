@@ -1,16 +1,16 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Home from "./pages/Home";
+import { Header } from './components';
 import MovieInfoPage from "./pages/MovieInfoPage";
+import Home from "./pages/Home"
 
 export const App = () => {
   return (
-    // <Router>
-    //   <Header />
-    //   <MovieInfoPage/>
-    //   <Home />
-    // </Router>
-    <h1>hi</h1>
+    <Router>
+      <Header />
+      <MovieInfoPage/>
+      <Home/>
+      <MovieList/>
+    </Router>
   );
 };
 
