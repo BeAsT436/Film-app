@@ -6,16 +6,13 @@ const Nav = () => {
       <nav>
         <ul className={styles.navigation}>
           <li>
-            <NavLink to={"#"}>Popular</NavLink>
+            <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"#"}>Upcoming</NavLink>
+            <NavLink to={"/watchlist"}>Watch list</NavLink>
           </li>
           <li>
-            <NavLink to={"#"}>Now playing</NavLink>
-          </li>
-          <li>
-            <NavLink to={"#"}>Top rated</NavLink>
+            <NavLink to={"/watched"}>Watched</NavLink>
           </li>
         </ul>
       </nav>
