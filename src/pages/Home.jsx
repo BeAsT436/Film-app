@@ -6,7 +6,6 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const getData = async () => {
     const { Search } = await fetchData("home");
-    console.log(Search);
     setMovies(Search);
   };
   function handleOnClick(params) {
