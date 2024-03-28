@@ -1,7 +1,7 @@
-
-const Poster = (props) => {
+import styles from "./Poster.module.css"
+const Poster = ({movie}) => {
     return (
-        <div><img src={props.movie.Poster} alt={props.movie.Title} /></div>
+        <div><img src={movie.Poster} alt={movie.Title} /></div>
     )
 }
 

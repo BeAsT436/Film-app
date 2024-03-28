@@ -1,20 +1,14 @@
-import { Poster } from "../components";
+import { MovieDetails, Poster } from "../components";
+import {Title} from "../components/common";
 import { movie } from "../data";
 
 
 const MovieInfoPage = () => {
   return <div>
-    <h1>{movie.Title}</h1>
+    <Title title={movie.Title}/>
     <div className="content">
       <Poster movie={movie} />
-      <div>
-        <p>Year: {movie.Year}</p>
-        <p>Actors: {movie.Actors}</p>
-        <p>Runtime: {movie.Runtime}</p>
-        <p>Released: {movie.Released}</p>
-        <p>Country: {movie.Country}</p>
-        <p>Language: {movie.Language}</p>
-      </div>
+      <MovieDetails movie={movie}/>
     </div>
   </div>
 
