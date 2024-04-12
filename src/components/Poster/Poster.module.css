@@ -1,3 +1,73 @@
-div{
-    
-}
+.poster {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+  }
+  
+  .posterImg {
+    width: 100%;
+    border-radius: 10px;
+    vertical-align: bottom;
+  }
+  
+  .ratings {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .displayRatings {
+    display: flex;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .ratingCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    padding: 5px;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .orange {
+    background-color: orange;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .ratingCircle {
+    position: relative;
+  }
+  
+  .ratingName {
+    position: absolute;
+    top: -30px;
+    left: 100%;
+    transform: translateX(-50%);
+    background-color: #333333b7;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    width: max-content;
+  }
+  
+  .ratingCircle:hover .ratingName {
+    display: block;
+  }
