@@ -1,34 +1,41 @@
 import styles from "./MovieDetails.module.css";
-const MovieDetails = ({ movie }) => {
-  const details = [
-    {
-      label: "Year",
-      value: movie.Year,
-    },
-    {
-      label: "Actors",
-      value: movie.Actors,
-    },
-    {
-      label: "Runtime",
-      value: movie.Runtime,
-    },
-    {
-      label: "Released",
-      value: movie.Released,
-    },
-    {
-      label: "Country",
-      value: movie.Country,
-    },
-    {
-      label: "Language",
-      value: movie.Language,
-    },
-  ];
-  return <div>{details.map((detail, index)=>(
-    <p key={index} className="detailItem"><span className="detailLable">{detail.label}: </span>{detail.value}</p>
-  ))}</div>;
+const movieDetailsNames = [
+  "Year",
+  "Rated",
+  "Released",
+  "Runtime",
+  "Genre",
+  "Director",
+  "Writer",
+  "Actors",
+  "Plot",
+  "Language",
+  "Country",
+  "Awards",
+];
+
+function movieDetailsHelper(movies) {
+  return movieDetailsNames.map((label) => ({ label, value: movies[label] }));
+}
+
+const MovieDetailsTag = ({detail}) => {
+  return (
+    <div className={styles.detailItem}>
+      <span className={styles.detailLabel}>{detail.label}: </span>
+      <span className={styles.detailValue}>{detail.value}</span>
+    </div>
+  );
 };
+
+const MovieDetails = ({ movie }) => {
+  return (
+    <div className={styles.detailsContainer}>
+      {movieDetailsHelper(movie).map((detail, index) => (
+        <MovieDetailsTag  key={index} detail={detail}/>
+      ))}
+    </div>
+  );
+};
+
 
 export default MovieDetails;
