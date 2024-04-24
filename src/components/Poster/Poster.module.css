@@ -1,73 +1,77 @@
+:local :root {
+  --circle-radius-size: 50px;
+  --circle-border-radius: 50%;
+}
+
 .poster {
-    position: relative;
-    max-width: 350px;
-    width: 100%;
-  }
-  
-  .posterImg {
-    width: 100%;
-    border-radius: 10px;
-    vertical-align: bottom;
-  }
-  
-  .ratings {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-    font-size: 18px;
-  }
-  
-  .displayRatings {
-    display: flex;
-    gap: 10px;
-    position: relative;
-  }
-  
-  .ratingCircle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8em;
-    padding: 5px;
-  }
-  
-  .green {
-    background-color: green;
-  }
-  
-  .orange {
-    background-color: orange;
-  }
-  
-  .red {
-    background-color: red;
-  }
-  
-  .ratingCircle {
-    position: relative;
-  }
-  
-  .ratingName {
-    position: absolute;
-    top: -30px;
-    left: 100%;
-    transform: translateX(-50%);
-    background-color: #333333b7;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    display: none;
-    width: max-content;
-  }
-  
-  .ratingCircle:hover .ratingName {
-    display: block;
-  }
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  height: max-content;
+  animation: var(--slide-from-left), var(--fadeIn);
+}
+
+.posterImg {
+  width: 100%;
+  border-radius: var(--border-radius);
+  vertical-align: bottom;
+  box-shadow: var(--box-shadow);
+}
+
+.ratings {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-black-opacity);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  font-size: var(--font-size-large);
+}
+
+.displayRatings {
+  display: flex;
+  gap: var(--margin);
+  position: relative;
+}
+
+.ratingCircle {
+  width: var(--circle-radius-size);
+  height: var(--circle-radius-size);
+  border-radius: var(--circle-border-radius);
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-medium);
+  padding: var(--padding);
+  position: relative;
+}
+
+.green {
+  background-color: var(--rating-color-good);
+}
+
+.orange {
+  background-color: var(--rating-color-normal);
+}
+
+.red {
+  background-color: var(--rating-color-bad);
+}
+
+.ratingName {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  display: none;
+  width: max-content;
+}
+
+.ratingCircle:hover .ratingName {
+  display: block;
+}

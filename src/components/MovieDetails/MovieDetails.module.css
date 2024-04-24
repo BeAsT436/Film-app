@@ -1,38 +1,25 @@
 .detailsContainer {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 750px;
   width: 100%;
   flex-grow: 2;
-  padding: 15px;
-  background: #2a9d8f;
-  border-radius: 15px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
-
-  opacity: 0;
-  transform: translateX(100%);
-  animation: slideFromRight 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+  padding: var(--padding);
+  background: var(--bg-color-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  animation: var(--slide-from-right), var(--fadeIn);
 }
 
 .detailItem {
-  margin: 10px 0;
+  margin: var(--margin) 0;
 }
 
 .detailLabel {
-  font-weight: bold;
-  color: #264653;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
 }
 
 .detailValue {
-  color: #282c31;
-}
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  color: var(--text-color-light);
 }
