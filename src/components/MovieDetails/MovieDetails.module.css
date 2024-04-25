@@ -1,0 +1,25 @@
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  width: 100%;
+  flex-grow: 2;
+  padding: var(--padding);
+  background: var(--bg-color-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  animation: var(--slide-from-right), var(--fadeIn);
+}
+
+.detailItem {
+  margin: var(--margin) 0;
+}
+
+.detailLabel {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
+}
+
+.detailValue {
+  color: var(--text-color-light);
+}

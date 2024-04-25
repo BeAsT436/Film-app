@@ -1,0 +1,68 @@
+:root {
+    --bg-color: #f4a261;
+    --bg-color-dark: #0b0c10;
+    --bg-color-primary: #1f2833;
+    --bg-color-secondary: #c5c6c7;
+    --bg-color-accent: #66fcf1;
+  
+    --text-color-light: #c5c6c7;
+    --text-color-dark: #0b0c10;
+    --text-color-primary: #45a29e;
+    --text-color-secondary: #1f2833;
+    --text-color-accent: #66fcf1;
+  
+    --opacity-zero: 0;
+    --opacity-md: 0.5;
+    --opacity-one: 1;
+  
+    --black-rgb: 0, 0, 0;
+    --color-black-opacity: rgba(var(--black-rgb), var(--opacity-md));
+  
+    --rating-color-bad: #ff6e6b;
+    --rating-color-normal: #f9a828;
+    --rating-color-good: #5cb85c;
+  
+    --font-size-small: 0.875rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.125rem;
+    --font-size-extra-large: 1.25rem;
+    --font-size-xx-large: 1.5rem;
+  
+    --font-family: Arial, sans-serif;
+    --line-height: 1.5;
+    --text-decoration: none;
+    --text-transform: none;
+    --cursor: pointer;
+    --font-weigh-light: 300;
+    --font-weight-normal: 500;
+    --font-weight-bold: 900;
+  
+    --padding: 10px;
+    --margin: 10px;
+  
+    --border-width: 1px;
+    --border-color: #ccc;
+    --border-radius: 15px;
+  
+    --box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  
+    --max-width-small: 600px;
+    --max-width-medium: 900px;
+    --max-width-large: 1200px;
+    --max-width-extra-large: 1600px;
+  
+    --translate-initial: translateX(0);
+    --translate-right: translateX(100%);
+    --translate-left: translateX(-100%);
+    --translate-top: translateY(-100%);
+  
+    --transition-duration: 0.3s;
+    --transition-timing-function: ease;
+    --animation-duration: 0.7s;
+    --animation-timing: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    --slide-from-right: slideFromRight var(--animation-duration) var(--animation-timing) forwards;
+    --slide-from-left: slideFromLeft var(--animation-duration) var(--animation-timing) forwards;
+    --slide-from-top: slideFromTop var(--animation-duration) var(--animation-timing) forwards;
+    --fadeIn: fadeIn var(--animation-duration) var(--animation-timing) forwards;
+    --jolt: jolt 0.2s 0.8s;
+  }

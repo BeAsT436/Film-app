@@ -1,0 +1,5 @@
+.title {
+    text-align: center;
+    margin: var(--margin) 0;
+    animation: var(--slide-from-top), var(--jolt), var(--fadeIn);
+  }
