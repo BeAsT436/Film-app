@@ -1,22 +1,8 @@
 import styles from "./MovieDetails.module.css";
-const movieDetailsNames = [
-  "Year",
-  "Rated",
-  "Released",
-  "Runtime",
-  "Genre",
-  "Director",
-  "Writer",
-  "Actors",
-  "Plot",
-  "Language",
-  "Country",
-  "Awards",
-];
+import movieDetailsHelper from "../../helpers";
 
-function movieDetailsHelper(movies) {
-  return movieDetailsNames.map((label) => ({ label, value: movies[label] }));
-}
+
+
 
 const MovieDetailsTag = ({detail}) => {
   return (

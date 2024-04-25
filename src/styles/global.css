@@ -16,8 +16,8 @@ li {
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-extra-large);
-  background-color: var(--bg-color-light);
   overflow-x: hidden;
+  background-color: var(--bg-color);
 }
 
 a {

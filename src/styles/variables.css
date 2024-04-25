@@ -1,5 +1,5 @@
 :root {
-    --bg-color-light: #f4f4f4;
+    --bg-color: #f4a261;
     --bg-color-dark: #0b0c10;
     --bg-color-primary: #1f2833;
     --bg-color-secondary: #c5c6c7;
@@ -23,7 +23,7 @@
     --rating-color-good: #5cb85c;
   
     --font-size-small: 0.875rem;
-    --font-size-medium: 1rem
+    --font-size-medium: 1rem;
     --font-size-large: 1.125rem;
     --font-size-extra-large: 1.25rem;
     --font-size-xx-large: 1.5rem;
