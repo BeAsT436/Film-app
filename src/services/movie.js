@@ -1,4 +1,4 @@
-import { data } from "../data/index";
+import { data, movie } from "../data/index";
 
 class BaseService {
   createApiUrl(params = {}) {
@@ -16,7 +16,7 @@ class BaseService {
         } else {
           reject(new Error("Simulated error during data retrieval"));
         }
-      }, 5000);
+      }, 1000);
     });
   }
   async fetchFromApi(url) {
@@ -26,52 +26,64 @@ class BaseService {
     }
 
     return response.json();
-    
   }
-  
- async fetchMoviesBySearchTerm(searchTerm, type = '', page = 1) {
-  try {
-    if (this.DEV_MODE) {
-      return await this.simulateFetchWithDelay(data)
-    } else {
-      const url = this.createApiUrl({ s: searchTerm, type, page })
 
-      return await this.fetchFromApi(url)
-    }
-  } catch (error) {
-    console.error('Error fetching movies:', error)
-    throw error
-  }
+
 }
 
-async fetchMovieById(id) {
-  try {
-    if (this.DEV_MODE) {
-      return await this.simulateFetchWithDelay(data.movie, 0.5)
-    } else {
-      const url = this.createApiUrl({ i: id })
-
-      return this.fetchFromApi(url)
-    }
-  } catch (error) {
-    console.error('Error fetching movie:', error)
-    throw error
+class MovieService extends BaseService {
+  constructor() {
+    super();
+    this.DEV_MODE = true;
   }
-}
-}
 
-const fetchData = async () => {
+  async fetchMoviesBySearchTerm(searchTerm, type = "", page = 1) {
     try {
-      const { Search, totalResults } = await new Promise((resolve) =>
-        setTimeout(() => resolve(data), 1000)
-      )
-      return {
-        Search,
-        totalResults,
+      if (this.DEV_MODE) {
+        return await this.simulateFetchWithDelay(data);
+      } else {
+        const url = this.createApiUrl({ s: searchTerm, type, page });
+
+        return await this.fetchFromApi(url);
       }
     } catch (error) {
-      console.error('Error fetching data:', error)
-      throw error
+      console.error("Error fetching movies:", error);
+      throw error;
     }
   }
-export default fetchData
+
+  async fetchMovieById(id) {
+    try {
+      if (this.DEV_MODE) {
+        return await this.simulateFetchWithDelay(movie, 0.5);
+      } else {
+        const url = this.createApiUrl({ i: id });
+
+        return this.fetchFromApi(url);
+      }
+    } catch (error) {
+      console.error("Error fetching movie:", error);
+      throw error;
+    }
+  }
+}
+
+const movieServiceInstance = new MovieService()
+
+export default movieServiceInstance
+// const fetchData = async () => {
+//   try {
+//     const { Search, totalResults } = await new Promise((resolve) =>
+//       setTimeout(() => resolve(data), 1000)
+//     );
+//     return {
+//       Search,
+//       totalResults,
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     throw error;
+//   }
+// };
+
+// export default fetchData;
