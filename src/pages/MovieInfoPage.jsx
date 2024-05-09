@@ -4,42 +4,60 @@ import MovieDetailsLayout from "../components/layouts/MovieDetailsLayout/MovieDe
 import { useNavigate, useParams } from "react-router-dom";
 import movieServiceInstance from "../services/movie";
 import { useEffect, useState } from "react";
+import Button from "../components/common/Button/Button";
+import Loader from "../components/Loader/Loader";
 
 const MovieInfoPage = () => {
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState({ isError: false, message: "" });
+
   const navigate = useNavigate();
   const { id } = useParams();
-  const handleBackClick = () => navigate(-1);
-
-  useEffect(() => {
-    const getMovieDetailsById = async (movieId) => {
+  const getMovieDetails = async (movieId) => {
+    setIsLoading(true);
+    try {
       const data = await movieServiceInstance.fetchMovieById(movieId);
       setMovie(data);
-    };
-    
-    getMovieDetailsById(id);
+    } catch (error) {
+      setError({ isError: true, message: error.message });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    // getMovieDetails(id);
   }, [id]);
 
+  const handleBackClick = () => navigate(-1);
+
+  const handleRefetchClick = ()=>{
+    setError({isError: false, message:""})
+    getMovieDetails(id)
+  }
+
+  if (isLoading) return <Loader/>;
+  if (error.isError)
+    return (
+      <div>
+        <div>{error.message}</div>
+        <Button onClick={handleRefetchClick}>Retry</Button>
+        <Button onClick={handleBackClick}>Back</Button>
+      </div>
+    );
+
   return (
-    <>
-      {movie ? (
-        <>
-          <Title title={movie.Title} />
-          <MovieDetailsLayout>
-            <Poster movie={movie} />
-            <MovieDetails movie={movie} />
-          </MovieDetailsLayout>
-          <button
-            style={{ width: "100px", height: "75px" }}
-            onClick={handleBackClick}
-          >
-            back
-          </button>
-        </>
-      ) : (
-        <div>loading</div>
-      )}
-    </>
+    movie && (
+      <>
+        <Title title={movie.Title} />
+        <MovieDetailsLayout>
+          <Poster movie={movie} />
+          <MovieDetails movie={movie} />
+        </MovieDetailsLayout>
+        <Button onClick={handleBackClick}>Back</Button>
+      </>
+    )
   );
 };
 export default MovieInfoPage;
