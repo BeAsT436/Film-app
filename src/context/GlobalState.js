@@ -7,6 +7,11 @@ const initialState = {
     movies: [],
     isLoading: false,
     error: null,
+    totalPages: 0,
+    currentPage: 1,
+    totalResults: 0,
+    searchTerm: "",
+    type: "",
   },
 };
 
@@ -14,31 +19,19 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const getMovies = async (searchTerm, type, page) => {
+  const getMovies = async (searchTerm = "home alone", type, page) => {
     try {
-      dispatch({
-        type: "SET_LOADING",
-        payload: true,
-      });
-      const { Search } = await movieServiceInstance.fetchMoviesBySearchTerm(
+      dispatch({ type: "SET_LOADING", payload: true });
+      const { Search, totalResults } = await movieServiceInstance.fetchMoviesBySearchTerm(
         searchTerm,
         type,
         page
       );
-      dispatch({
-        type: "SET_FILMS",
-        payload: { Search },
-      });
+      dispatch({ type: "SET_FILMS", payload: { Search, totalResults, searchTerm, type, page } });
     } catch (error) {
-      dispatch({
-        type: "SET_ERROR",
-        payload: error.message,
-      });
+      dispatch({ type: "SET_ERROR", payload: error.message });
     } finally {
-      dispatch({
-        type: "SET_LOADING",
-        payload: false,
-      });
+      dispatch({ type: "SET_LOADING", payload: false });
     }
   };
   return (

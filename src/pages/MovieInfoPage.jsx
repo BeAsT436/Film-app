@@ -6,6 +6,7 @@ import movieServiceInstance from "../services/movie";
 import { useEffect, useState } from "react";
 import Button from "../components/common/Button/Button";
 import Loader from "../components/Loader/Loader";
+import { Error } from "../components/Error/Error";
 
 const MovieInfoPage = () => {
   const [movie, setMovie] = useState(null);
@@ -27,24 +28,20 @@ const MovieInfoPage = () => {
   };
 
   useEffect(() => {
-    // getMovieDetails(id);
+    getMovieDetails(id);
   }, [id]);
 
   const handleBackClick = () => navigate(-1);
 
-  const handleRefetchClick = ()=>{
-    setError({isError: false, message:""})
-    getMovieDetails(id)
-  }
+  const handleRefetchClick = () => {
+    setError({ isError: false, message: "" });
+    getMovieDetails(id);
+  };
 
-  if (isLoading) return <Loader/>;
+  if (isLoading) return <Loader />;
   if (error.isError)
     return (
-      <div>
-        <div>{error.message}</div>
-        <Button onClick={handleRefetchClick}>Retry</Button>
-        <Button onClick={handleBackClick}>Back</Button>
-      </div>
+      <Error error={error.message} handleRefetchClick={handleRefetchClick} />
     );
 
   return (
