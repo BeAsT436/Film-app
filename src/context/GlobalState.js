@@ -19,7 +19,7 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const getMovies = async (searchTerm = "home alone", type, page) => {
+  const getMovies = async (searchTerm = "shark", type, page) => {
     try {
       dispatch({ type: "SET_LOADING", payload: true });
       const { Search, totalResults } = await movieServiceInstance.fetchMoviesBySearchTerm(

@@ -34,7 +34,7 @@ class BaseService {
 class MovieService extends BaseService {
   constructor() {
     super();
-    this.DEV_MODE = true;
+    this.DEV_MODE = false;
   }
 
   async fetchMoviesBySearchTerm(searchTerm, type = "", page = 1) {
