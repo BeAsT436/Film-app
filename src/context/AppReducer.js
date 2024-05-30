@@ -1,14 +1,14 @@
 const AppReducer = (state, action) => {
   switch (action.type) {
-    case "SET_LOADING":
+    case 'SET_LOADING':
       return {
         ...state,
         searched: {
           ...state.searched,
           isLoading: action.payload,
         },
-      };
-    case "SET_FILMS":
+      }
+    case 'SET_FILMS':
       return {
         ...state,
         searched: {
@@ -18,19 +18,19 @@ const AppReducer = (state, action) => {
           searchTerm: action.payload.searchTerm,
           type: action.payload.type,
           totalResults: action.payload.totalResults,
-          totalPages: Math.ceil(action.payload.totalResults / 5)
+          totalPages: Math.ceil(action.payload.totalResults / 5),
         },
-      };
-    case "SET_ERROR":
+      }
+    case 'SET_ERROR':
       return {
         ...state,
         searched: {
           ...state.searched,
           error: action.payload,
         },
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
-export default AppReducer;
+}
+export default AppReducer

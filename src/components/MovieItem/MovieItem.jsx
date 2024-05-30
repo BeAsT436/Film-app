@@ -1,6 +1,6 @@
-import styles from "./MovieItem.module.css";
-import { Link } from "react-router-dom";
-const MovieItem = (props) => {
+import styles from './MovieItem.module.css'
+import { Link } from 'react-router-dom'
+const MovieItem = props => {
   return (
     <li className={styles.list}>
       <img className={styles.img} src={props.movie.Poster} alt="" />
@@ -12,7 +12,7 @@ const MovieItem = (props) => {
         <h4 className={styles.year}>{props.movie.Year}</h4>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default MovieItem;
+export default MovieItem

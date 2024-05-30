@@ -1,13 +1,13 @@
-import styles from "./Search.module.css";
-import { useState } from "react";
+import styles from './Search.module.css'
+import { useState } from 'react'
 
-export const Search = (props) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchType, setSearchType] = useState("");
-  
-  const handleClick = ()=>{
+export const Search = props => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchType, setSearchType] = useState('')
+
+  const handleClick = () => {
     props.handleSearchClick(searchTerm, searchType)
-    setSearchTerm("")
+    setSearchTerm('')
   }
 
   return (
@@ -15,14 +15,14 @@ export const Search = (props) => {
       <input
         type="text"
         placeholder="enter movie title"
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
+        onChange={e => {
+          setSearchTerm(e.target.value)
         }}
         value={searchTerm}
       />
       <select
-        onChange={(e) => {
-          setSearchType(e.target.value);
+        onChange={e => {
+          setSearchType(e.target.value)
         }}
         value={searchType}
       >
@@ -33,5 +33,5 @@ export const Search = (props) => {
       </select>
       <button onClick={handleClick}>search</button>
     </div>
-  );
-};
+  )
+}

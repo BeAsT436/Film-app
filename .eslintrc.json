@@ -6,7 +6,34 @@
       "plugin:react/recommended"
     ],
     "rules": {
-        "prefer-const":"error",
-        "react/react-in-jsx-scope":"off"
+      "prefer-const": "error",
+      "no-unused-vars": "error",
+      "no-console": "warn",
+      "no-alert": "error",
+      "no-debugger": "error",
+      "no-empty-function": "error",
+      "no-empty-pattern": "error",
+      "no-eval": "error",
+      "no-implicit-coercion": "error",
+      "no-invalid-this": "error",
+      "no-magic-numbers": ["warn", { "ignore": [-1, 0, 1] }],
+      "no-param-reassign": "error",
+      "no-return-await": "error",
+      "no-useless-concat": "error",
+      "no-useless-return": "error",
+      "no-var": "error",
+      "prefer-arrow-callback": "error",
+      "prefer-template": "error",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "warn",
+      "react/no-unused-prop-types": "warn",
+      "react/no-unused-state": "error",
+      "react/jsx-no-bind": "warn",
+      "react/jsx-fragments": ["error", "syntax"],
+      "react/jsx-key": "error",
+      "react/jsx-no-target-blank": "error",
+      "react/jsx-uses-react": "off",
+      "react/jsx-uses-vars": "error"
+
     }
   }

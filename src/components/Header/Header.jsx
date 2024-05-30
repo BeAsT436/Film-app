@@ -1,5 +1,5 @@
-import {Nav} from "../index";
-import "./Header.css";
+import { Nav } from '../index'
+import './Header.css'
 
 const Header = () => {
   return (
@@ -7,7 +7,7 @@ const Header = () => {
       <h1>Movie time</h1>
       <Nav />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
