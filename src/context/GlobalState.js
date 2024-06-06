@@ -1,6 +1,5 @@
 import { createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
-import fetchData from '../services/movie'
 import movieServiceInstance from '../services/movie'
 const initialState = {
   searched: {
