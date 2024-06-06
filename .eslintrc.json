@@ -16,7 +16,7 @@
       "no-eval": "error",
       "no-implicit-coercion": "error",
       "no-invalid-this": "error",
-      "no-magic-numbers": ["warn", { "ignore": [-1, 0, 1] }],
+      "no-magic-numbers": ["error", { "ignore": [-1, 0, 1] }],
       "no-param-reassign": "error",
       "no-return-await": "error",
       "no-useless-concat": "error",
