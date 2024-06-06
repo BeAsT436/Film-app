@@ -2,23 +2,29 @@ import { useContext, memo } from 'react'
 import { MovieList } from '../components'
 import { GlobalContext } from '../context/GlobalState'
 import { Search } from '../components/Search/Search'
+import Loader from '../components/Loader/Loader'
+import { Error } from '../components/Error/Error'
 
 const Home = () => {
   const { getMovies, searched } = useContext(GlobalContext)
-  function handleOnClick(params) {
-    getMovies()
-  }
   const handleSearchClick = async (searchTerm, searchType) => {
     await getMovies(searchTerm)
   }
+
+  if (searched.isLoading) return <Loader />
+  if (searched.error) return <Error error={searched.error} />
   return (
     <>
       <Search handleSearchClick={handleSearchClick} />
-      <div>
-        <h2>Popular films</h2>
-        <button onClick={handleOnClick}>123</button>
-        <MemorizedMovieList movies={searched.movies} />
-      </div>
+      {searched.movies.length ? (
+        <MemorizedMovieList
+          movies={searched.movies}
+          currentPage={searched.currentPage}
+          totalPages={searched.totalPages}
+        />
+      ) : (
+        <div>start searching</div>
+      )}
     </>
   )
 }
