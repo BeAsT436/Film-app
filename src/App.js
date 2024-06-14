@@ -2,6 +2,8 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 import { Header } from './components'
 import MovieInfoPage from './pages/MovieInfoPage'
 import Home from './pages/Home'
+import Watched from './pages/Watched'
+import WatchList from './pages/WatchList'
 
 export const App = () => {
   return (
@@ -9,6 +11,8 @@ export const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/watched" element={<Watched />} />
+        <Route path="/watchlist" element={<WatchList />} />
         <Route path="/movie/:id" element={<MovieInfoPage />} />
       </Routes>
     </Router>
