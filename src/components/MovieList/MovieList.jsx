@@ -2,7 +2,7 @@ import { MovieItem } from '../index'
 import styles from '../MovieList/MovieList.module.css'
 import Paginator from '../Paginator/Paginator'
 
-const MovieList = ({ movies, currentPage, totalPages }) => {
+const MovieList = ({ movies, currentPage, totalPages, handlePageChange }) => {
   return (
     <>
     <ul className={styles.container}>
@@ -12,7 +12,7 @@ const MovieList = ({ movies, currentPage, totalPages }) => {
         movies?.map(movie => <MovieItem movie={movie} key={movie.imdbID} />)
       )}
     </ul>
-    <Paginator currentPage={currentPage} totalPages={totalPages}/>
+    <Paginator currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange}/>
     </>
     
     

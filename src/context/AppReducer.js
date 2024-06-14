@@ -29,6 +29,14 @@ const AppReducer = (state, action) => {
           error: action.payload,
         },
       }
+    case 'SET_CURRENT_PAGE':
+      return{
+        ...state,
+        searched:{
+          ...state.searched,
+          currentPage: action.payload 
+        }
+      }
     default:
       return state
   }

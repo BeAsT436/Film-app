@@ -18,7 +18,7 @@ export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
-  const getMovies = async (searchTerm = 'shark', type, page) => {
+  const getMovies = async (searchTerm = 'shark', type, page = 1) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true })
       const { Search, totalResults } =
@@ -37,11 +37,16 @@ export const GlobalProvider = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: false })
     }
   }
+  const setCurrentPage = (newPage)=>{
+    dispatch({type:"SET_CURRENT_PAGE", payload:newPage})
+    getMovies(state.searched.searchTerm, state.searched.type, newPage)
+  }
   return (
     <GlobalContext.Provider
       value={{
         searched: state.searched,
         getMovies,
+        setCurrentPage
       }}
     >
       {children}

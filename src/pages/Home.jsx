@@ -6,7 +6,7 @@ import Loader from '../components/Loader/Loader'
 import { Error } from '../components/Error/Error'
 
 const Home = () => {
-  const { getMovies, searched } = useContext(GlobalContext)
+  const { getMovies, searched, setCurrentPage } = useContext(GlobalContext)
   const handleSearchClick = async (searchTerm, searchType) => {
     await getMovies(searchTerm)
   }
@@ -21,6 +21,7 @@ const Home = () => {
           movies={searched.movies}
           currentPage={searched.currentPage}
           totalPages={searched.totalPages}
+          handlePageChange={setCurrentPage}
         />
       ) : (
         <div>start searching</div>
