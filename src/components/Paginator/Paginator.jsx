@@ -8,7 +8,7 @@ const Paginator = ({currentPage, totalPages, handlePageChange})=>{
         <Button disabled={currentPage === 1} onClick={()=>handlePageChange(currentPage-1)}>previous</Button>
         <span>{currentPage} of {totalPages}</span>
         <Button disabled={currentPage === totalPages} onClick={()=>handlePageChange(currentPage+1)}>next</Button>
-        <Button disabled={currentPage === totalPages} onClick={()=>handlePageChange(currentPage + 1412)}>last Page</Button>
+        <Button disabled={currentPage === totalPages} onClick={()=>handlePageChange(totalPages)}>last Page</Button>
     </div>
 )
         

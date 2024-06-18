@@ -18,7 +18,7 @@ const AppReducer = (state, action) => {
           searchTerm: action.payload.searchTerm,
           type: action.payload.type,
           totalResults: action.payload.totalResults,
-          totalPages: Math.ceil(action.payload.totalResults / 5),
+          totalPages: Math.ceil(action.payload.totalResults / 10),
         },
       }
     case 'SET_ERROR':
