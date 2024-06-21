@@ -1,6 +1,6 @@
 import styles from './MovieItem.module.css'
 import { Link } from 'react-router-dom'
-import defaultPosterUrl from '../../assets/images/no-poster.png'
+import defaultPosterUrl from '../../assets/images/no-poster.jpg'
 const MovieItem = ({movie}) => {
   const {Poster, Title, Year, imdbID} = movie
   const posterUrl = Poster !== 'N/A' && Poster ? Poster : defaultPosterUrl

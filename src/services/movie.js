@@ -41,8 +41,14 @@ class MovieService extends BaseService {
         return await this.simulateFetchWithDelay(data)
       } else {
         const url = this.createApiUrl({ s: searchTerm, type, page })
-
-        return await this.fetchFromApi(url)
+        const moviesData = await this.fetchFromApi(url)
+        if (moviesData.Error === 'Too many results.') {
+          throw new Error(moviesData.Error)
+        }
+        if (moviesData.Error === 'Movie not found!') {
+          throw new Error(moviesData.Error)
+        }
+        return moviesData
       }
     } catch (error) {
       console.error('Error fetching movies:', error)
