@@ -30,12 +30,24 @@ const AppReducer = (state, action) => {
         },
       }
     case 'SET_CURRENT_PAGE':
-      return{
+      return {
         ...state,
-        searched:{
+        searched: {
           ...state.searched,
-          currentPage: action.payload 
-        }
+          currentPage: action.payload,
+        },
+      }
+    case 'ADD_FAVORITE':
+      return {
+        ...state,
+        favourites: [...state.favourites, action.payload],
+      }
+    case 'REMOVE_FAVORITE':
+      return {
+        ...state,
+        favourites: state.favourites.filter(
+          movie => movie.imdbID !== action.payload,
+        ),
       }
     default:
       return state

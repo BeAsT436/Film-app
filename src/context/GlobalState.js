@@ -1,7 +1,10 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useEffect, useReducer } from 'react'
 import AppReducer from './AppReducer'
 import movieServiceInstance from '../services/movie'
+
 const initialState = {
+  // favourites: JSON.parse(localStorage.getItem('favorites')) || [],
+  favourites: [],
   searched: {
     movies: [],
     isLoading: false,
@@ -37,16 +40,37 @@ export const GlobalProvider = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: false })
     }
   }
-  const setCurrentPage = (newPage)=>{
-    dispatch({type:"SET_CURRENT_PAGE", payload:newPage})
+
+  const addFavorite = movie =>
+    dispatch({ type: 'ADD_FAVORITE', payload: movie })
+
+  const removeFavorite = movieId => {
+    dispatch({ type: 'REMOVE_FAVORITE', payload: movieId })
+
+    const updatedFavorites = state.favorites.filter(
+      movie => movie.imdbID !== movieId,
+    )
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+  }
+
+  const setCurrentPage = newPage => {
+    dispatch({ type: 'SET_CURRENT_PAGE', payload: newPage })
     getMovies(state.searched.searchTerm, state.searched.type, newPage)
   }
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(state.favorites))
+  }, [state.favorites])
+
   return (
     <GlobalContext.Provider
       value={{
         searched: state.searched,
         getMovies,
-        setCurrentPage
+        setCurrentPage,
+        removeFavorite,
+        addFavorite,
+        favourites: state.favourites,
       }}
     >
       {children}
