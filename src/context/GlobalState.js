@@ -3,8 +3,8 @@ import AppReducer from './AppReducer'
 import movieServiceInstance from '../services/movie'
 
 const initialState = {
-  // favourites: JSON.parse(localStorage.getItem('favorites')) || [],
-  favourites: [],
+  favorites: JSON.parse(localStorage.getItem('favorites')) || [],
+  watchList: JSON.parse(localStorage.getItem('watchList')) || [],
   searched: {
     movies: [],
     isLoading: false,
@@ -58,19 +58,29 @@ export const GlobalProvider = ({ children }) => {
     getMovies(state.searched.searchTerm, state.searched.type, newPage)
   }
 
+  const addMovieWatchList = movie =>
+    dispatch({ type: 'ADD_TO_WATCHLIST', payload: movie })
+
+  const removeMovieFromWatchList = movieId =>
+    dispatch({ type: 'REMOVE_FROM_WATCHLIST', payload: movieId })
+
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(state.favorites))
-  }, [state.favorites])
+    localStorage.setItem('watchList', JSON.stringify(state.watchList))
+  }, [state.favorites, state.watchList])
 
   return (
     <GlobalContext.Provider
       value={{
         searched: state.searched,
+        favorites: state.favorites,
+        watchList: state.watchList,
         getMovies,
         setCurrentPage,
         removeFavorite,
         addFavorite,
-        favourites: state.favourites,
+        addMovieWatchList,
+        removeMovieFromWatchList,
       }}
     >
       {children}

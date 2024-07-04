@@ -40,12 +40,24 @@ const AppReducer = (state, action) => {
     case 'ADD_FAVORITE':
       return {
         ...state,
-        favourites: [...state.favourites, action.payload],
+        favorites: [...state.favorites, action.payload],
       }
     case 'REMOVE_FAVORITE':
       return {
         ...state,
-        favourites: state.favourites.filter(
+        favorites: state.favorites.filter(
+          movie => movie.imdbID !== action.payload,
+        ),
+      }
+    case 'ADD_TO_WATCHLIST':
+      return {
+        ...state,
+        watchList: [...state.watchList, action.payload],
+      }
+    case 'REMOVE_FROM_WATCHLIST':
+      return {
+        ...state,
+        watchList: state.watchList.filter(
           movie => movie.imdbID !== action.payload,
         ),
       }

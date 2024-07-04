@@ -15,7 +15,7 @@ const Nav = () => {
           <NavLink to={'/watched'}>Watched</NavLink>
         </li>
         <li>
-          <NavLink to={'/favourites'}>Favourites</NavLink>
+          <NavLink to={'/favorites'}>Favourites</NavLink>
         </li>
       </ul>
     </nav>

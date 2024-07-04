@@ -5,12 +5,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { GlobalContext } from '../../context/GlobalState'
 import { useContext } from 'react'
+import Button from '../common/Button/Button'
 
 const MovieItem = ({ movie }) => {
-  const { favorites, addFavorite, removeFavorite } = useContext(GlobalContext)
+  const { favorites, addFavorite, removeFavorite, watchList } = useContext(GlobalContext)
   const { Poster, Title, Year, imdbID } = movie
   const posterUrl = Poster !== 'N/A' && Poster ? Poster : defaultPosterUrl
   const isFavorite = favorites.some(fav => fav.imdbID === imdbID)
+  const isWatchList = watchList.some(film => film.imdbID === imdbID)
+
   const handleFavoriteClick = () => {
     if (isFavorite) {
       removeFavorite(imdbID)
@@ -35,6 +38,11 @@ const MovieItem = ({ movie }) => {
           />
           {' '}
         </button>
+      {isWatchList ?<Button onClick={()=>{console.log("added to watchlist")}}>
+        add to watchlist
+      </Button> :<Button onClick={()=>{console.log("removed from watchlist")}}>
+        remove from watchlist
+      </Button>}
       </div>
     </li>
   )
