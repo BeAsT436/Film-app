@@ -61,6 +61,19 @@ const AppReducer = (state, action) => {
           movie => movie.imdbID !== action.payload,
         ),
       }
+    case 'ADD_TO_WATCHED':
+      return {
+        ...state,
+        watched: [...state.watched, action.payload],
+        watchList: state.watchList.filter(
+          movie => movie.imdbID !== action.payload.imdbID,
+        ),
+      }
+    case 'REMOVE_FROM_WATCHED':
+      return {
+        ...state,
+        watched: state.watched.filter(movie => movie.imdbID !== action.payload),
+      }
     default:
       return state
   }

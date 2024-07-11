@@ -5,6 +5,7 @@ import movieServiceInstance from '../services/movie'
 const initialState = {
   favorites: JSON.parse(localStorage.getItem('favorites')) || [],
   watchList: JSON.parse(localStorage.getItem('watchList')) || [],
+  watched: JSON.parse(localStorage.getItem('watched')) || [],
   searched: {
     movies: [],
     isLoading: false,
@@ -18,8 +19,15 @@ const initialState = {
 }
 
 export const GlobalContext = createContext(initialState)
+
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(state.favorites))
+    localStorage.setItem('watchList', JSON.stringify(state.watchList))
+    localStorage.setItem('watched', JSON.stringify(state.watched))
+  }, [state])
 
   const getMovies = async (searchTerm = 'shark', type, page = 1) => {
     try {
@@ -64,10 +72,11 @@ export const GlobalProvider = ({ children }) => {
   const removeMovieFromWatchList = movieId =>
     dispatch({ type: 'REMOVE_FROM_WATCHLIST', payload: movieId })
 
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(state.favorites))
-    localStorage.setItem('watchList', JSON.stringify(state.watchList))
-  }, [state.favorites, state.watchList])
+  const addToWatched = movie =>
+    dispatch({ type: 'ADD_TO_WATCHED', payload: movie })
+
+  const removeFromWatched = movieId =>
+    dispatch({ type: 'REMOVE_FROM_WATCHED', payload: movieId })
 
   return (
     <GlobalContext.Provider
@@ -75,12 +84,15 @@ export const GlobalProvider = ({ children }) => {
         searched: state.searched,
         favorites: state.favorites,
         watchList: state.watchList,
+        watched: state.watched,
         getMovies,
         setCurrentPage,
         removeFavorite,
         addFavorite,
         addMovieWatchList,
         removeMovieFromWatchList,
+        addToWatched,
+        removeFromWatched,
       }}
     >
       {children}
