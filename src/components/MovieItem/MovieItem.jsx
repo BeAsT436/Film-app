@@ -52,11 +52,11 @@ const MovieItem = ({ movie }) => {
             color={isFavorite ? 'red' : 'black'}
           />
         </button>
-        {!isWatched?
+        {/* {!isWatched? */}
         <Button onClick={handleWatchListClick}>{isWatchList ? "remove from watchList":"Add to Watchlist"}</Button>
-        :
+        {/* : */}
         <Button onClick={handleWatchedClick}>{isWatched ? "remove from watched":"Add to Watched"}</Button>
-                  }
+                  {/* } */}
       </div>
     </li>
   )
