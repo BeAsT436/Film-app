@@ -51,6 +51,7 @@ const Home = () => {
           currentPage={searched.currentPage}
           totalPages={searched.totalPages}
           handlePageChange={setCurrentPage}
+          type={"home"}
         />
       ) : (
         <div>start searching</div>

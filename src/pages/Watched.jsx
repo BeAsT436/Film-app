@@ -7,7 +7,7 @@ const Watched = () => {
   return (
     <>
     {watched.length > 0 ? (
-      <MovieList movies={watched} />
+      <MovieList movies={watched} type={"watched"}/>
     ) : (
       <p>add movie to watched</p>
     )}

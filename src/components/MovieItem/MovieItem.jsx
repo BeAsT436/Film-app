@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { GlobalContext } from '../../context/GlobalState'
 import { useContext } from 'react'
-import Button from '../common/Button/Button'
+import { Controls } from '../Controls/Controls'
 
-const MovieItem = ({ movie }) => {
-  const { favorites, addFavorite, removeFavorite, watchList, addMovieWatchList, removeMovieFromWatchList, watched, addToWatched, removeFromWatched } =
+const MovieItem = ({ movie, type }) => {
+  const { favorites, addFavorite, removeFavorite, watchList, watched} =
     useContext(GlobalContext)
   const { Poster, Title, Year, imdbID } = movie
   const posterUrl = Poster !== 'N/A' && Poster ? Poster : defaultPosterUrl
@@ -16,25 +16,14 @@ const MovieItem = ({ movie }) => {
   const isWatchList = watchList.some(film => film.imdbID === imdbID)
   const isWatched = watched.some(film => film.imdbID === imdbID)
 
+  const isWatchListDisabled = isWatchList?true:isWatched?true:false
+  const isWatchedDisabled = isWatched?true:isWatchList?true:false
+
   const handleFavoriteClick = () => {
     if (isFavorite) {
       removeFavorite(imdbID)
     } else {
       addFavorite(movie)
-    }
-  }
-  const handleWatchListClick = () => {
-    if (isWatchList) {
-      removeMovieFromWatchList(imdbID)
-    } else {
-      addMovieWatchList(movie)
-    }
-  }
-  const handleWatchedClick = () => {
-    if (isWatched) {
-      removeFromWatched(imdbID)
-    } else {
-      addToWatched(movie)
     }
   }
   return (
@@ -52,11 +41,7 @@ const MovieItem = ({ movie }) => {
             color={isFavorite ? 'red' : 'black'}
           />
         </button>
-        {/* {!isWatched? */}
-        <Button onClick={handleWatchListClick}>{isWatchList ? "remove from watchList":"Add to Watchlist"}</Button>
-        {/* : */}
-        <Button onClick={handleWatchedClick}>{isWatched ? "remove from watched":"Add to Watched"}</Button>
-                  {/* } */}
+        <Controls type={type} movie={movie} isWatchedDisabled={isWatchedDisabled} isWatchedListDisabled={isWatchListDisabled}/>
       </div>
     </li>
   )

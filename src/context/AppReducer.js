@@ -46,20 +46,24 @@ const AppReducer = (state, action) => {
       return {
         ...state,
         favorites: state.favorites.filter(
-          movie => movie.imdbID !== action.payload,
+          movie => movie.imdbID !== action.payload.imdbID,
         ),
       }
     case 'ADD_TO_WATCHLIST':
       return {
         ...state,
         watchList: [...state.watchList, action.payload],
+        watched: state.watched.filter(
+          movie => movie.imdbID !== action.payload.imdbID,
+        ),
       }
     case 'REMOVE_FROM_WATCHLIST':
       return {
         ...state,
         watchList: state.watchList.filter(
-          movie => movie.imdbID !== action.payload,
+          movie => movie.imdbID !== action.payload.imdbID,
         ),
+        watched: [...state.watched, action.payload],
       }
     case 'ADD_TO_WATCHED':
       return {
@@ -72,7 +76,10 @@ const AppReducer = (state, action) => {
     case 'REMOVE_FROM_WATCHED':
       return {
         ...state,
-        watched: state.watched.filter(movie => movie.imdbID !== action.payload),
+        watched: state.watched.filter(
+          movie => movie.imdbID !== action.payload.imdbID,
+        ),
+        watchList: [...state.watchList, action.payload],
       }
     default:
       return state
