@@ -1,3 +1,3 @@
-const MovieInfo = ()=>{
-    return <p>1</p>
+const MovieInfo = () => {
+  return <p>1</p>
 }

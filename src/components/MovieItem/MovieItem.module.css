@@ -1,17 +1,13 @@
-.list{
-    padding: 10px;
-    margin: 20px 0;
-    display: flex;
-}
-.info{
-    margin-left: 15px;
-}
-.title{
-    font-size: 1.7rem;
-}
-.img{
-    width: 200px;
+.favoriteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
-
-
+.favoriteButton:focus {
+  outline: none;
+}

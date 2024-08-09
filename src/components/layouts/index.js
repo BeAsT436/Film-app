@@ -1,3 +1,3 @@
-import MovieDetailsLayout from "./MovieDetailsLayout/MovieDetailsLayout";
+import MovieDetailsLayout from './MovieDetailsLayout/MovieDetailsLayout'
 
-export { MovieDetailsLayout };
+export { MovieDetailsLayout }
