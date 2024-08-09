@@ -1,0 +1,77 @@
+:local :root {
+  --circle-radius-size: 50px;
+  --circle-border-radius: 50%;
+}
+
+.poster {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  height: max-content;
+  animation: var(--slide-from-left), var(--fadeIn);
+}
+
+.posterImg {
+  width: 100%;
+  border-radius: var(--border-radius);
+  vertical-align: bottom;
+  box-shadow: var(--box-shadow);
+}
+
+.ratings {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-black-opacity);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  font-size: var(--font-size-large);
+}
+
+.displayRatings {
+  display: flex;
+  gap: var(--margin);
+  position: relative;
+}
+
+.ratingCircle {
+  width: var(--circle-radius-size);
+  height: var(--circle-radius-size);
+  border-radius: var(--circle-border-radius);
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-medium);
+  padding: var(--padding);
+  position: relative;
+}
+
+.green {
+  background-color: var(--rating-color-good);
+}
+
+.orange {
+  background-color: var(--rating-color-normal);
+}
+
+.red {
+  background-color: var(--rating-color-bad);
+}
+
+.ratingName {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  display: none;
+  width: max-content;
+}
+
+.ratingCircle:hover .ratingName {
+  display: block;
+}

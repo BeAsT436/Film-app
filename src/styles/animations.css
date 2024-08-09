@@ -1,0 +1,50 @@
+@keyframes slideFromRight {
+  from {
+    transform: var(--translate-right);
+  }
+  to {
+    transform: var(--translate-initial);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: var(--translate-left);
+  }
+  to {
+    transform: var(--translate-initial);
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: var(--translate-top);
+  }
+  to {
+    transform: var(--translate-initial);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: var(--opacity-zero);
+  }
+  to {
+    opacity: var(--opacity-one);
+  }
+}
+
+@keyframes jolt {
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

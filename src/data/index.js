@@ -112,7 +112,7 @@ export const movie = {
     },
     {
       Source: 'Metacritic',
-      Value: '63/100',
+      Value: '45/100',
     },
   ],
   Metascore: '63',
