@@ -13,6 +13,7 @@ export const Search = props => {
   return (
     <div className={styles.container}>
       <input
+        className={styles.input}
         type="text"
         placeholder="enter movie title"
         onChange={e => {
@@ -21,6 +22,7 @@ export const Search = props => {
         value={searchTerm}
       />
       <select
+        className={styles.select}
         onChange={e => {
           setSearchType(e.target.value)
         }}
@@ -31,7 +33,8 @@ export const Search = props => {
         <option value="series">series</option>
         <option value="episode">episode</option>
       </select>
-      <button onClick={handleClick}>search</button>
+
+      <button className={styles.search} onClick={handleClick}>search</button>
     </div>
   )
 }

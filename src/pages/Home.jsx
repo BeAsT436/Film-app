@@ -36,7 +36,6 @@ const Home = () => {
   }
 
   if (searched.isLoading) return <Loader />
-  // if (searched.error) return <Error error={searched.error} />
   return (
     <>
       <ErrorModal
