@@ -25,6 +25,7 @@ const Home = () => {
       handleError(error)
     }
   }
+  
   const handleError = message => {
     setErrorMessage(message)
     setIsOpenModal(true)

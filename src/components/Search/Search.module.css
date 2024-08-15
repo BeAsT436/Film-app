@@ -21,8 +21,14 @@
   border: 2px solid #4646e2;
   border-radius: 5px;
   padding: 12px 20px;
+  font-style: var(--font-size-extra-large);
 }
-.search:hover{
+.search:hover:not([disabled]){
   background-color: #e29ef7;
-  font-size: 25px;
+  font-size: 25px; 
+}
+.search:disabled{
+  background-color:#ccc;
+  font-style: var(--font-size-extra-large);
+  cursor: not-allowed;
 }
