@@ -6,8 +6,30 @@
   padding: 0;
   display: flex;
   align-items: center;
+  font-size: 40px;
 }
 
 .favoriteButton:focus {
   outline: none;
+}
+.list{
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  background-color: rgba(141, 76, 76, 0.519);
+  border-radius: 20px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+}
+.info_title{
+  flex-grow: 2;
+  /* padding: 5px; */
+}
+.title{
+  font-size: 1.6rem;
+}
+.year{
+  color: var(--text-color-secondary);
 }

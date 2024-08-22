@@ -8,13 +8,8 @@ import { useContext } from 'react'
 import { Controls } from '../Controls/Controls'
 
 const MovieItem = ({ movie, type }) => {
-  const {
-    favorites,
-    addFavorite,
-    removeFavorite,
-    watchList,
-    watched,
-  } = useContext(GlobalContext)
+  const { favorites, addFavorite, removeFavorite, watchList, watched } =
+    useContext(GlobalContext)
   const { Poster, Title, Year, imdbID } = movie
   const posterUrl = Poster !== 'N/A' && Poster ? Poster : defaultPosterUrl
   const isFavorite = favorites.some(fav => fav.imdbID === imdbID)
@@ -35,17 +30,22 @@ const MovieItem = ({ movie, type }) => {
     <li className={styles.list}>
       <img className={styles.img} src={posterUrl} alt="" />
       <div className={styles.info}>
-        <Link to={`/movie/${imdbID}`}>
-          <h3 className={styles.title}>{Title}</h3>
-        </Link>
+        <div className={styles.info_title}>
+          <Link to={`/movie/${imdbID}`}>
+            <h3 className={styles.title}>{Title}</h3>
+          </Link>
 
-        <h4 className={styles.year}>{Year}</h4>
-        <button className={styles.favoriteButton} onClick={handleFavoriteClick}>
-          <FontAwesomeIcon
-            icon={faHeart}
-            color={isFavorite ? 'red' : 'black'}
-          />
-        </button>
+          <h4 className={styles.year}>{Year}</h4>
+          <button
+            className={styles.favoriteButton}
+            onClick={handleFavoriteClick}
+          >
+            <FontAwesomeIcon
+              icon={faHeart}
+              color={isFavorite ? 'red' : 'black'}
+            />
+          </button>
+        </div>
         <Controls
           type={type}
           movie={movie}
