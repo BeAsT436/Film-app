@@ -46,14 +46,16 @@ const MovieItem = ({ movie, type }) => {
             />
           </button>
         </div>
-        <Controls
-          type={type}
-          movie={movie}
-          isWatchedDisabled={isWatchedDisabled}
-          isWatchedListDisabled={isWatchListDisabled}
-          isWatchList={isWatchList}
-          isWatched={isWatched}
-        />
+        <div className={styles.controls}>
+          <Controls
+            type={type}
+            movie={movie}
+            isWatchedDisabled={isWatchedDisabled}
+            isWatchedListDisabled={isWatchListDisabled}
+            isWatchList={isWatchList}
+            isWatched={isWatched}
+          />
+        </div>
       </div>
     </li>
   )
