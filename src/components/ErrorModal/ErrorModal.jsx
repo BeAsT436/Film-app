@@ -1,13 +1,13 @@
-const ErrorModal = props => {
- if (!props.isOpen) {
+const ErrorModal = ({isOpen, message, onClose}) => {
+ if (!isOpen) {
     return null
  }
  return (
     <div className="modal-overlay">
       <div className="modal">
         <h2>Error</h2>
-        <p>{props.message}</p>
-        <button onClick={props.onClose}>Close</button>
+        <p>{message}</p>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   )
