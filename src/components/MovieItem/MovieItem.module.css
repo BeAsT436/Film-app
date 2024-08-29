@@ -13,13 +13,11 @@
   outline: none;
 }
 .list {
-  .list {
-    display: flex;
-    gap: 20px;
-    background: linear-gradient(135deg, #1f2833, #29445f);
-    border-radius: 10px;
-    width: 100%;
-  }
+  display: flex;
+  gap: 20px;
+  background: linear-gradient(135deg, #1f2833, #29445f);
+  border-radius: 10px;
+  width: 100%;
 }
 .info {
   display: flex;

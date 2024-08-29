@@ -35,8 +35,7 @@ const Home = () => {
     setErrorMessage('')
     setIsOpenModal(false)
   }
-
-  <>
+return(<>
     <Search handleSearchClick={handleSearchClick} />
     {searched.isLoading && <Loader />}
     <ErrorModal
@@ -52,11 +51,13 @@ const Home = () => {
         totalPages={searched.totalPages}
         handlePageChange={setCurrentPage}
         type={'home'}
+        totalMovies={searched.totalResults}
       />
     ) : (
       <div>start searching</div>
     )}
-  </>
+  </>)
+  
 }
 const MemorizedMovieList = memo(MovieList)
 export default Home

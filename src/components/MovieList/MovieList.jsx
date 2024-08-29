@@ -9,9 +9,11 @@ const MovieList = ({
   totalPages,
   handlePageChange,
   type,
+  totalMovies,
 }) => {
   return (
     <>
+      <h2 className={styles.totalFilms}>Founded: {totalMovies} matches</h2>
       <ul className={styles.container}>
         {movies.length === 0 ? (
           <h2>no movies</h2>
@@ -31,7 +33,8 @@ const MovieList = ({
 }
 export default MovieList
 
-MovieItem.propTypes = {
+MovieList.propTypes = {
+  totalMovies: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   handlePageChange: PropTypes.func.isRequired,
