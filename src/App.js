@@ -10,13 +10,16 @@ export const App = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/favorites" element={<Favourites />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/watched" element={<Watched />} />
-        <Route path="/watchlist" element={<WatchList />} />
-        <Route path="/movie/:id" element={<MovieInfoPage />} />
-      </Routes>
+
+      <div className="container">
+        <Routes>
+          <Route path="/favorites" element={<Favourites />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/watched" element={<Watched />} />
+          <Route path="/watchlist" element={<WatchList />} />
+          <Route path="/movie/:id" element={<MovieInfoPage />} />
+        </Routes>
+      </div>
     </Router>
   )
 }

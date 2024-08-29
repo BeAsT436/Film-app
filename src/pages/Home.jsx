@@ -9,13 +9,13 @@ const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const { getMovies, searched, setCurrentPage } = useContext(GlobalContext)
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (searched.error) {
       setErrorMessage(searched.error)
       setIsOpenModal(true)
     }
-  },[searched.error])
+  }, [searched.error])
 
   const handleSearchClick = async (searchTerm, searchType) => {
     try {
@@ -25,6 +25,7 @@ const Home = () => {
       handleError(error)
     }
   }
+
   const handleError = message => {
     setErrorMessage(message)
     setIsOpenModal(true)
@@ -34,30 +35,29 @@ const Home = () => {
     setErrorMessage('')
     setIsOpenModal(false)
   }
+return(<>
+    <Search handleSearchClick={handleSearchClick} />
+    {searched.isLoading && <Loader />}
+    <ErrorModal
+      message={errorMessage}
+      onClose={handleCloseModal}
+      isOpen={isOpenModal}
+    />
 
-  if (searched.isLoading) return <Loader />
-  // if (searched.error) return <Error error={searched.error} />
-  return (
-    <>
-      <ErrorModal
-        message={errorMessage}
-        onClose={handleCloseModal}
-        isOpen={isOpenModal}
+    {searched.movies.length && !searched.isLoading ? (
+      <MemorizedMovieList
+        movies={searched.movies}
+        currentPage={searched.currentPage}
+        totalPages={searched.totalPages}
+        handlePageChange={setCurrentPage}
+        type={'home'}
+        totalMovies={searched.totalResults}
       />
-      <Search handleSearchClick={handleSearchClick} />
-      {searched.movies.length ? (
-        <MemorizedMovieList
-          movies={searched.movies}
-          currentPage={searched.currentPage}
-          totalPages={searched.totalPages}
-          handlePageChange={setCurrentPage}
-          type={"home"}
-        />
-      ) : (
-        <div>start searching</div>
-      )}
-    </>
-  )
+    ) : (
+      <div>start searching</div>
+    )}
+  </>)
+  
 }
 const MemorizedMovieList = memo(MovieList)
 export default Home
