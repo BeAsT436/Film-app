@@ -2,7 +2,7 @@ import styles from './Search.module.css'
 import { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 
-export const Search = ({handleSearchClick}) => {
+export const Search = ({ handleSearchClick }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchType, setSearchType] = useState('')
 
@@ -10,15 +10,15 @@ export const Search = ({handleSearchClick}) => {
     handleSearchClick(searchTerm, searchType)
     setSearchTerm('')
     setSearchType('')
-  },[searchTerm, searchType, handleSearchClick])
+  }, [searchTerm, searchType, handleSearchClick])
 
   const handleInputChange = useCallback(e => {
     setSearchTerm(e.target.value)
-  },[])
+  }, [])
 
   const handleSelectChange = useCallback(e => {
     setSearchType(e.target.value)
-  },[])
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -52,5 +52,5 @@ export const Search = ({handleSearchClick}) => {
 }
 
 Search.propTypes = {
-  handleSearchClick:PropTypes.func.isRequired
+  handleSearchClick: PropTypes.func.isRequired,
 }

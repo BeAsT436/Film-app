@@ -45,7 +45,7 @@ export const Controls = ({ type, movie, isWatchList, isWatched }) => {
   }
   return (
     <div>
-      {type === 'home' && (<NewFilm/>)}
+      {type === 'home' && <NewFilm />}
       {type === 'watchList' && (
         <>
           <Button onClick={() => addToWatched(movie)}>Add to Watched</Button>

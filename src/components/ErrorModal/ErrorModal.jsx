@@ -1,8 +1,8 @@
-const ErrorModal = ({isOpen, message, onClose}) => {
- if (!isOpen) {
+const ErrorModal = ({ isOpen, message, onClose }) => {
+  if (!isOpen) {
     return null
- }
- return (
+  }
+  return (
     <div className="modal-overlay">
       <div className="modal">
         <h2>Error</h2>

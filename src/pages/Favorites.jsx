@@ -9,7 +9,7 @@ const Favorites = () => {
   const { favorites } = useContext(GlobalContext)
   const [currentPage, setCurrentPage] = useState(1)
 
-  const handlePageChange = useCallback((page)=>{
+  const handlePageChange = useCallback(page => {
     setCurrentPage(page)
   }, [])
 

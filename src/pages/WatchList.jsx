@@ -7,7 +7,7 @@ const WatchList = () => {
   return (
     <>
       {watchList.length > 0 ? (
-        <MovieList movies={watchList} type={"watchList"}/>
+        <MovieList movies={watchList} type={'watchList'} />
       ) : (
         <p>add movie to watchList</p>
       )}

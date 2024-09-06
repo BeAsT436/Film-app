@@ -35,29 +35,30 @@ const Home = () => {
     setErrorMessage('')
     setIsOpenModal(false)
   }
-return(<>
-    <Search handleSearchClick={handleSearchClick} />
-    {searched.isLoading && <Loader />}
-    <ErrorModal
-      message={errorMessage}
-      onClose={handleCloseModal}
-      isOpen={isOpenModal}
-    />
-
-    {searched.movies.length && !searched.isLoading ? (
-      <MemorizedMovieList
-        movies={searched.movies}
-        currentPage={searched.currentPage}
-        totalPages={searched.totalPages}
-        handlePageChange={setCurrentPage}
-        type={'home'}
-        totalMovies={searched.totalResults}
+  return (
+    <>
+      <Search handleSearchClick={handleSearchClick} />
+      {searched.isLoading && <Loader />}
+      <ErrorModal
+        message={errorMessage}
+        onClose={handleCloseModal}
+        isOpen={isOpenModal}
       />
-    ) : (
-      <div>start searching</div>
-    )}
-  </>)
-  
+
+      {searched.movies.length && !searched.isLoading ? (
+        <MemorizedMovieList
+          movies={searched.movies}
+          currentPage={searched.currentPage}
+          totalPages={searched.totalPages}
+          handlePageChange={setCurrentPage}
+          type={'home'}
+          totalMovies={searched.totalResults}
+        />
+      ) : (
+        <div>start searching</div>
+      )}
+    </>
+  )
 }
 const MemorizedMovieList = memo(MovieList)
 export default Home

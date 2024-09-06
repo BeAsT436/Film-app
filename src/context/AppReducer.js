@@ -17,7 +17,7 @@ const AppReducer = (state, action) => {
           currentPage: action.payload.page,
           searchTerm: action.payload.searchTerm,
           type: action.payload.type,
-          totalResults: action.payload.totalResults,
+          totalResults: Number(action.payload.totalResults),
           totalPages: Math.ceil(action.payload.totalResults / 10),
         },
       }
