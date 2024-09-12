@@ -3,6 +3,7 @@ import { useCallback, useContext, useMemo, useState } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 import { MovieList } from '../components'
 
+
 const ITEMS_PER_PAGE = 10
 
 const Favorites = () => {

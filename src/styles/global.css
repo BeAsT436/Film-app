@@ -2,11 +2,38 @@
 @import url(./animations.css);
 @import url(./media.css);
 
+@media (max-width: 600px) {
+
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+
+}
+
+@media (min-width: 1601px) {
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-decoration: var(--text-decoration);
+}
+html,
+body {
+  min-height: 100%;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 li {
@@ -35,43 +62,4 @@ a {
   justify-content: center;
   align-items: center;
 }
-.modal {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
 
-.modal button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.modal button:hover {
-  background: #0056b3;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-html,
-body {
-  min-height: 100%;
-  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: cover;
-  background-repeat: no-repeat;
-}

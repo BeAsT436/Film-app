@@ -4,7 +4,7 @@ import styles from './Header.module.css'
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.container}>
         <h1>Movie time</h1>
         <Nav />
       </div>
