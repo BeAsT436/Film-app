@@ -5,13 +5,14 @@ import Home from './pages/Home'
 import Watched from './pages/Watched'
 import WatchList from './pages/WatchList'
 import Favourites from './pages/Favorites'
+import MainLayout from './components/layouts/MainLayout/MainLayout'
 
 export const App = () => {
   return (
     <Router>
       <Header />
 
-      <div className="container">
+      <MainLayout>
         <Routes>
           <Route path="/favorites" element={<Favourites />} />
           <Route path="/" element={<Home />} />
@@ -19,7 +20,7 @@ export const App = () => {
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/movie/:id" element={<MovieInfoPage />} />
         </Routes>
-      </div>
+      </MainLayout>
     </Router>
   )
 }

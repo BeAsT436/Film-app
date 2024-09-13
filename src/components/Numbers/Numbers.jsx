@@ -1,10 +1,6 @@
-const Numbers = () =>{
-    const ITEMS_PER_PAGE = 10
-    
-    return (
-        <Numbers ITEMS_PER_PAGE={ITEMS_PER_PAGE}/>
-    )
-}
+
+const ITEMS_PER_PAGE = 10
+
 
 export default Numbers
 

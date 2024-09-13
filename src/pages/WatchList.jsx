@@ -1,8 +1,10 @@
 import { useCallback, useContext, useMemo, useState } from 'react'
 import { MovieList } from '../components'
 import { GlobalContext } from '../context/GlobalState'
+import { ITEMS_PER_PAGE } from '../constants'
+import EmptyList from '../components/EmptyList/EmptyList'
 
-const ITEMS_PER_PAGE = 10
+
 
 const WatchList = () => {
   const { watchList } = useContext(GlobalContext)
@@ -27,7 +29,7 @@ const WatchList = () => {
         totalPages={totalPages}
         handlePageChange={handlePageChange}/>
       ) : (
-        <p>add movie to watchList</p>
+        <EmptyList label='add movie to watchList'/>
       )}
     </>
   )

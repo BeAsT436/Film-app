@@ -2,9 +2,12 @@ import { useCallback, useContext, useMemo, useState } from 'react'
 
 import { GlobalContext } from '../context/GlobalState'
 import { MovieList } from '../components'
+import { ITEMS_PER_PAGE } from '../constants'
+import EmptyList from '../components/EmptyList/EmptyList'
 
 
-const ITEMS_PER_PAGE = 10
+
+
 
 const Favorites = () => {
   const { favorites } = useContext(GlobalContext)
@@ -26,7 +29,7 @@ const Favorites = () => {
     <div className="favorites">
       <h2>My Favorites</h2>
       {favorites.length === 0 ? (
-        <p>favorites is empty</p>
+        <EmptyList label='favourite is empty'/>
       ) : (
         <MovieList
           movies={currentMovies}

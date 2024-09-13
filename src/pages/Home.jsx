@@ -4,6 +4,7 @@ import { GlobalContext } from '../context/GlobalState'
 import { Search } from '../components/Search/Search'
 import Loader from '../components/Loader/Loader'
 import ErrorModal from '../components/ErrorModal/ErrorModal'
+import EmptyList from '../components/EmptyList/EmptyList'
 
 const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -44,9 +45,9 @@ const Home = () => {
         onClose={handleCloseModal}
         isOpen={isOpenModal}
       />
-
-      {searched.movies.length && !searched.isLoading ? (
-        <MemorizedMovieList
+ 
+      {!searched.isLoading && (searched.movies.length ?
+        (<MemorizedMovieList
           movies={searched.movies}
           currentPage={searched.currentPage}
           totalPages={searched.totalPages}
@@ -55,8 +56,8 @@ const Home = () => {
           totalMovies={searched.totalResults}
         />
       ) : (
-        <div>start searching</div>
-      )}
+        <EmptyList label='start searching'/>
+      ))}
     </>
   )
 }

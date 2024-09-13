@@ -12,3 +12,4 @@ export const movieDetailsNames = [
   'Country',
   'Awards',
 ]
+export const ITEMS_PER_PAGE = 10
