@@ -1,0 +1,16 @@
+.logo h1 {
+    white-space: nowrap;
+    color: #e74c3c;
+    font-family: 'Cinzel', serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1.3;
+  }
+  
+  .logo h1 span {
+    background: #e74c3c;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.8;
+    padding: 0 16px;
+  }

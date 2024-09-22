@@ -1,25 +1,48 @@
+import { useCallback, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+
 import styles from './Nav.module.css'
 
 const Nav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(!isMenuOpen)
+  }, [isMenuOpen])
+
+  const activeLink = useCallback(
+    ({ isActive }) => (isActive ? styles.active : 'none'),
+    [],
+  )
+
   return (
-    <nav>
-      <ul className={styles.navigation}>
+    <nav className={styles.navigation}>
+      <div className={styles.menuToggle} onClick={toggleMenu}>
+        &#9776;
+      </div>
+      <ul className={isMenuOpen ? styles.open : ''}>
         <li>
-          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to="/" className={activeLink}>
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to={'/watchlist'}>Watchlist</NavLink>
+          <NavLink to="/watchlist" className={activeLink}>
+            Watchlist
+          </NavLink>
         </li>
         <li>
-          <NavLink to={'/watched'}>Watched</NavLink>
+          <NavLink to="/watched" className={activeLink}>
+            Watched
+          </NavLink>
         </li>
         <li>
-          <NavLink to={'/favorites'}>Favourites</NavLink>
+          <NavLink to="/favorites" className={activeLink}>
+            Favorites
+          </NavLink>
         </li>
       </ul>
     </nav>
   )
 }
-
 export default Nav

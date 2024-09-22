@@ -1,11 +1,11 @@
-import { Nav } from '../index'
+import { Nav, Logo } from '../index'
 import styles from './Header.module.css'
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <h1>Movie time</h1>
+        <Logo />
         <Nav />
       </div>
     </header>
